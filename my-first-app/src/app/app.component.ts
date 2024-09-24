@@ -6,13 +6,16 @@ import { ComponentIntercommunicationComponent } from './component-intercommunica
 import { HighlightCustomDirective } from './highlight-custom.directive';
 import { ChildComponent } from './child/child.component';
 import { Car } from './model/car';
+import { BookComponent } from './book/book.component';
+import { Book1Component } from './book1/book1.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,CommonModule,TwowaybindingComponent,
              ComponentIntercommunicationComponent,
-             HighlightCustomDirective,ChildComponent
+             HighlightCustomDirective,ChildComponent,BookComponent,
+             Book1Component
             ],
   templateUrl: './app.component.html',
  /*
@@ -29,6 +32,7 @@ import { Car } from './model/car';
 })
 export class AppComponent {
   title:string = 'Hello Friends, This i my first angular app!';
+  studname:string =  'Nikhil';
   arr:number[] =[31,11,41];
  // arr=[];
   car!:{name:string,power:number};
@@ -42,6 +46,8 @@ export class AppComponent {
   para:string = "center large";
   num:number = 12;
 
+  greet:string = 'app started...';
+
 
   constructor()
   {
@@ -50,10 +56,21 @@ export class AppComponent {
 
   }
 
+  greetme(str:string):void
+  {
+    this.greet = str;
+  }
+
+  sayHi1():string {
+    return "he he he";
+  }
+
   sayHi() : void{
     this.name="Hello user";
    // return "aaa";
   }
+
+  
 
   reverseString=function(x:string){
     return x.split('').reverse().join('');

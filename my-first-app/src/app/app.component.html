@@ -44,10 +44,22 @@
     }
     </ol>
 </div>
-
-
-    <hr/>
-    <app-child></app-child>
+<hr/>
+<button type="button" class="btn btn-primary" (click)="greetme('Hi Everyone!')">Greet</button>
+{{greet}}
+<br/>
+{{sayHi1()}}
+<hr/>
+   <!--step3: input bind that property insid the child tag as below-->
+    <app-child [myname]="'namrata'"></app-child>
+<hr/>
+    <app-child [myname]="studname"></app-child>
     
-
+  
+<hr/>
+<h6>entering book form details and displaying it using two-way-binding (without using ngModel)</h6>
+ <app-book></app-book>
+<hr/>
+ <h6>entering book form details and displaying it using ngModel - two-way-binding</h6>
+ <app-book1></app-book1>
 </div>
