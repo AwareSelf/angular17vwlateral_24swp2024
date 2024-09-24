@@ -1,130 +1,53 @@
-<h3>String interpolation</h3>
-<p>{{title}}</p>
-<p>{{2+3}}</p>
-<p>{{2*3}}</p>
-<p>{{arr.length}}</p>
-<p>{{arr.sort()}}</p>
+<div class="container">
+   <p>  {{title}} </p> <br/>
+    {{arr.length}} <br/>
+    {{2*3}} <br/>
 
-<p>{{car.name}} has {{car.power}}bhp power.</p>
-<p>{{reverseString('Avinash')}}</p>
-<hr/>
-<h3>Property Binding</h3>
-<button [disabled]="dis">Disabled</button>
 
-<h3>class and style property binding, to add class use ngClass directive and to add css inline style use ngStyle inbuilt directive</h3>
-<p [ngClass]="para">Paragraph with class center large</p>
+    @if(car)
+    {
+       <p>car details are: {{car.name}} , {{car.power}} </p> 
+    }
+   <!-- @else if(car.power>80){ <p>Car is running in speed!</p>  } -->
+    @else
+    {
+        <p>car details are not mentioned!</p>
+    }
 
-<p [ngStyle]="{'color':'#00f','text-align':'center'}">This is ngStyle Example</p>
-<p [ngStyle]="css">Paragraph</p>
+    @if(carx)
+    {
+       <p>car details are: {{carx.name}} , {{carx.power}} </p> 
+    }
+   <!-- @else if(car.power>80){ <p>Car is running in speed!</p>  } -->
+    @else
+    {
+        <p>car details are not mentioned!</p>
+    }
 
-<hr/>
-<h3>Event Binding</h3>
-<button (click)="sayHi()">Say Hi</button>
-<output>{{name}}</output>
-<hr/>
-<app-twowaybinding></app-twowaybinding>
-<hr/>
-<h3>Component intercommunication - using &#64;Input for input data binding from parent to child</h3>
-<app-component-intercommunication [greet]="message"></app-component-intercommunication>
+    @if(num==0){ <p>Zero</p> }
+   @else if(num>0){ <p>Positive</p>  }
+   @else if(num<0){ <p>Negative</p>  }
+   @else{ <p>Not a number</p>  }
 
-<hr/>
-<h3>Component intercommunication - using &#64;Output for emitting counter data event from child to parent</h3>
-<p>{{x}}</p>
-<app-component-intercommunication (changeValue)="showVal($event)"></app-component-intercommunication>
-
-<hr/>
-<h6>using *ngIf or &#64;if</h6>
-<p *ngIf="hybrid">Car is hybrid</p>
-<h6>from angular version 17 we can use &#64;if instead of *ngIf</h6>
-@if(hybrid)
-{
-   <p>Car is hybrid</p>
-}
-<h6>Note:NgIf will not set display none if its false. It will remove elements from DOM. This will free up memory and boost code performance.</h6>
-<hr/>
-@if(valid){ <p>Valid</p> }
-@else{ <p>Invalid</p>  }
-<hr/>
-@if(num==0){ <p>Zero</p> }
-@else if(num>0){ <p>Positive</p>  }
-@else if(num<0){ <p>Negative</p>  }
-@else{ <p>Not a number</p>  }
-<hr/>
-<h6>using *ngFor to iterate array</h6>
-<ol>
-  <li *ngFor="let i of cars">{{i}}</li>
-</ol>
-<h6>using &#64;for </h6>
-<ol>
-@for (item of cars; track $index) {
-  <li>{{$index}} : {{item}}</li>
-}
-@empty {
-  <p>No cars found</p>
-}
-</ol>
-<br/>
-<h6>The pipe keyvalue is only supported in Angular 6.1.0 and onwards.</h6>
-<ol>
-  <li *ngFor="let i of car1 | keyvalue">
-      {{i.key}} is {{i.value}}  
-  </li>
-</ol>
-<ol>
-  @for (i of car1 | keyvalue; track $index) {
-    <li>{{i.key}} : {{i.value}}</li>
-  }
-</ol>
-<br/>
-<hr/>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-  @for (i of mycars; track i.name ){
-    <tr>
-      <td>{{i.name}}</td>
-      <td>{{i.type}}</td>
-      <td>{{i.price}}</td>
-    </tr>
-  }
-  </tbody>
-</table>
-<hr/>
-@switch (day) {
-@case (1){ <p>Sunday</p>}
-@case (2){ <p>Monday</p>}
-@case (3){ <p>Tuesday</p>}
-@case (4){ <p>Wednesday</p>}
-@case (5){ <p>Thursday</p>}
-@case (6){ <p>Friday</p>}
-@case (7){ <p>Monday</p>}
-@default { <p>Invalid Day</p> }
-}
-<hr/>
-<h6>before ang 17</h6>
-<div [ngSwitch]="day">
-  <p *ngSwitchCase="1">Sunday</p>
-  <p *ngSwitchCase="3">Tuesday</p>
-  <p *ngSwitchDefault>Invalid Day</p>
-</div>
-<hr/>
-
-<p appHighlight [bkcolor]="'cyan'">Hi How are you?</p>
-
-<div appHighlight>
-  <table>
-    <tr><td>1</td></tr>
-    <tr><td>2</td></tr>
-  </table>
-</div>
-<!--
 <div>
-  <p [appSuitablefont]="initfont" [color]="'pink'" >hi all!</p>
+    @if(arr.length > 0)
+    {
+      <p>The no of items in the array {{arr.length}}</p>
+    }
+    <ol>
+    @for(i of arr ; track $index)
+    {
+      <li> {{$index}} - {{i}}</li>
+    }
+    @empty {
+        <p>Currently, there are no items added in an array/cart</p>
+    }
+    </ol>
 </div>
--->
+
+
+    <hr/>
+    <app-child></app-child>
+    
+
+</div>

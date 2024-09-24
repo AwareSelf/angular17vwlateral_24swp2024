@@ -4,31 +4,55 @@ import { RouterOutlet } from '@angular/router';
 import { TwowaybindingComponent } from './twowaybinding/twowaybinding.component';
 import { ComponentIntercommunicationComponent } from './component-intercommunication/component-intercommunication.component';
 import { HighlightCustomDirective } from './highlight-custom.directive';
+import { ChildComponent } from './child/child.component';
+import { Car } from './model/car';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,CommonModule,TwowaybindingComponent,
              ComponentIntercommunicationComponent,
-             HighlightCustomDirective
+             HighlightCustomDirective,ChildComponent
             ],
   templateUrl: './app.component.html',
+ /*
+   template: `<div class="container">
+    {{title}} <br/>
+    {{arr.length}} <br/>
+    {{2*3}}
+
+</div>`
+,
+*/
   styleUrl: './app.component.css'
+
 })
 export class AppComponent {
-  title = 'my-first-app-23sep24';
-  arr=[3,1,4];
-  car={name:"Swift",power:90}
-  dis = true;
+  title:string = 'Hello Friends, This i my first angular app!';
+  arr:number[] =[31,11,41];
+ // arr=[];
+  car!:{name:string,power:number};
+
+  carx!:Car;
+ 
+  dis:boolean = true;
   css={color:'#00f', 
        background:'#ccc'};
-  name="";
-  para = "center large";
+  name:string="";
+  para:string = "center large";
+  num:number = 12;
 
 
+  constructor()
+  {
+    this.car = {name:"Swift",power:90};
+    this.carx =  new Car("Hondacity",120);
 
-  sayHi(){
+  }
+
+  sayHi() : void{
     this.name="Hello user";
+   // return "aaa";
   }
 
   reverseString=function(x:string){
@@ -49,7 +73,7 @@ export class AppComponent {
   //using *ngIf, @if,@else,@else if
   hybrid=true;
   valid=false;
-  num=0;
+  
 
   //usingb *ngFor and @for
   cars=["swift","baleno","fronx"];

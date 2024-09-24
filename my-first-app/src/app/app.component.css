@@ -1,8 +1,18 @@
-p.center {
+/* p.center {
     text-align: center;
     color: red;
   }
   
   p.large {
     font-size: 300%;
+  }
+    */
+
+    P {
+      text-align: left;
+      color: blue;
+  }
+
+  div {
+    background-color: aqua;
   }

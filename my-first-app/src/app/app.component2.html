@@ -1,0 +1,16 @@
+<h3>Using Service in Component example</h3>
+
+@if(datasize>0) {
+   <p>Total no of items : {{datasize}}</p>
+ }
+<ol>
+    @for (item of data; track $index) {
+     <!-- <li>{{$index}} : {{item}}</li> -->
+     <li>{{item}}</li>
+    }
+
+    
+    @empty {
+      <p>No data found</p>
+    }
+</ol>
