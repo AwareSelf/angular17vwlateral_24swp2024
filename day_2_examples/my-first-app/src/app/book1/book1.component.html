@@ -1,0 +1,30 @@
+<h3>Register/Add a new Book!</h3>
+<div>
+    <input type="text" [(ngModel)]="book.bkid" placeholder="book id"  />
+    <input type="text" [(ngModel)]="book.bkname" placeholder="book name" />
+    <input type="text" [(ngModel)]="book.bkprice" placeholder="book price" />
+    <button class="btn btn-primary" type="button"  (click)="addBook()">
+      Add Book
+    </button>
+  </div>
+<hr>
+  @if(book)
+  {
+  <p>Current book details!</p>
+  <p> {{book.bkid}} , {{book.bkname}} , {{book.bkprice}} </p>
+  }
+<hr/>
+  {{successmsg}}
+ <!-- 
+<hr/>
+<ol>
+    @for( book of bookarr; track book.bkid )
+    {
+      <li>{{book.bkid}}, {{book.bkname}},{{book.bkprice}}</li>
+    }
+    @empty
+    {
+      <p>Book array is currently empty!</p>
+    }
+    </ol>
+  -->

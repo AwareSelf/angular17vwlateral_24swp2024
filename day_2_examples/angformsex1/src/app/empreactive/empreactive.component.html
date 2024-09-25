@@ -1,0 +1,22 @@
+<p>empreactive works!</p>
+<form (ngSubmit)="mysubmit()" [formGroup]="empform" novalidate>
+
+    <input type="text" class="form-control" placeholder="enter empid" formControlName="empid" />
+    <input type="text" class="form-control" placeholder="enter empname" formControlName="empname" />
+    <input type="text" class="form-control" placeholder="enter empsal" formControlName="empsal" />
+    <br/>
+    <input [disabled]="empform.status=='INVALID'" class="btn btn-success" type="submit" value="Add emp" />
+
+    <hr/>
+    <div [hidden]="empform.status=='VALID'" class="alert alert-danger">
+            FORM IS INVALID!
+    </div>
+
+    <div [hidden]="empform.get('empname')?.status=='VALID'" class="alert alert-danger">
+        FORMFIELD empname IS INVALID, can only have multiple letters from [a-zA-Z] but not numbers or wild chars!
+    </div>
+    <div>
+        <h6>emp reactive form value:</h6>
+        {{empform.value|json}}
+    </div>
+</form>

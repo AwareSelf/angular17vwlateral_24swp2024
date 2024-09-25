@@ -1,0 +1,9 @@
+<p>twowaybinding without ngModel!</p>
+<input type="search" value="{{name}}" (input)="name=$any($event.target).value"> <br/>
+<output>{{name}}</output> <br/><br/>
+<input type="search" value="{{name1}}"(input)="updateName($event)"> <br/>
+<output>{{name1}}</output>
+<hr/>
+
+<input type="text" [(ngModel)]="name2"> <br/>
+<output>{{name2}}</output>

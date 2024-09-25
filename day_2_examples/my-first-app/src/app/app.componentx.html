@@ -1,0 +1,25 @@
+<div class="container">
+<h3>String interpolation</h3>
+<p>{{title}}</p>
+<p>{{2+3}}</p>
+<p>{{2*3}}</p>
+<p>{{arr.length}}</p>
+<p>{{arr.sort()}}</p>
+
+<p>{{car.name}} has {{car.power}}bhp power.</p>
+<p>{{reverseString('Avinash')}}</p>
+<hr/>
+<h3>Property Binding</h3>
+<button  type="button" class="btn btn-primary" [disabled]="dis">Disabled</button>
+
+<h3>class and style property binding, to add class use ngClass directive and to add css inline style use ngStyle inbuilt directive</h3>
+<p [ngClass]="para">Paragraph with class center large</p>
+
+<p [ngStyle]="{'color':'#00f','text-align':'center'}">This is ngStyle Example</p>
+<p [ngStyle]="css">Paragraph</p>
+
+<hr/>
+<h3>Event Binding</h3>
+<button (click)="sayHi()">Say Hi</button>
+<output>{{name}}</output>
+</div>

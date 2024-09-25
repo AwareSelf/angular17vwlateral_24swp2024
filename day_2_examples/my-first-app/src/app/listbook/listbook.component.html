@@ -1,0 +1,15 @@
+<h3>List All Books in Library!</h3>
+<!--
+<p>Click the button below to get list of current books in the book library:</p>
+<button type="button"  class="btn btn-primary" (click)="listallbooks()">ListAllBooks</button>
+-->
+<ol>
+    @for( book of bookarr; track book.bkid )
+    {
+      <li>{{book.bkid}}, {{book.bkname}},{{book.bkprice}}</li>
+    }
+    @empty
+    {
+      <p>Book array is currently empty!</p>
+    }
+</ol>

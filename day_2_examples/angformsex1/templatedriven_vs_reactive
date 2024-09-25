@@ -1,0 +1,24 @@
+angular forms:
+   1) template-driven forms
+       ngModel - two-way-binding - FormsModule (import)
+       form & form-controls structure -  html template
+       code form validation , form styling - html template
+   
+       advantage:
+         1) suitable small forms
+       disadvantage:
+         1) long forms with sub-forms - not suitable
+	    form will be too much cluttered.doesn't look clean
+         2) unit-testing template form - code in html template
+   2) reactive-forms
+       1) create entire structure form - class file
+          all controls,nested controls,validations - .ts class file
+          even if it is complex - access inside class file
+          then u map it to the UI form
+       2) unit-testing is easy as entire structure is
+          in class file - unit test that class instance
+       
+       3) suitable for complex forms having multiple sub-forms
+       4) html form will look clean (less-cluttered) 
+       5) doesnt use ngModel
+

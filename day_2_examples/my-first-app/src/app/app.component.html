@@ -1,0 +1,75 @@
+<div class="container">
+  <!-- <p appHighlight [startcolor]="'orange'" [onclickcolor]="'purple'">  {{title}} </p> --> <br/>
+
+   <p [appHighlight]="'orange'"  [onclickcolor]="'purple'">  {{title}} </p> <br/>
+    {{arr.length}} <br/>
+    {{2*3}} <br/>
+
+
+    @if(car)
+    {
+       <p>car details are: {{car.name}} , {{car.power}} </p> 
+    }
+   <!-- @else if(car.power>80){ <p>Car is running in speed!</p>  } -->
+    @else
+    {
+        <p>car details are not mentioned!</p>
+    }
+
+    @if(carx)
+    {
+       <p>car details are: {{carx.name}} , {{carx.power}} </p> 
+    }
+   <!-- @else if(car.power>80){ <p>Car is running in speed!</p>  } -->
+    @else
+    {
+        <p>car details are not mentioned!</p>
+    }
+
+    @if(num==0){ <p>Zero</p> }
+   @else if(num>0){ <p>Positive</p>  }
+   @else if(num<0){ <p>Negative</p>  }
+   @else{ <p>Not a number</p>  }
+
+<div appHighlight>
+    @if(arr.length > 0)
+    {
+      <p>The no of items in the array {{arr.length}}</p>
+    }
+    <ol>
+    @for(i of arr ; track $index)
+    {
+      <li> {{$index}} - {{i}}</li>
+    }
+    @empty {
+        <p>Currently, there are no items added in an array/cart</p>
+    }
+    </ol>
+</div>
+<hr/>
+<button type="button" class="btn btn-primary" (click)="greetme('Hi Everyone!')">Greet</button>
+{{greet}}
+<br/>
+{{sayHi1()}}
+<hr/>
+   <!--step3: input bind that property insid the child tag as below-->
+    <app-child appHighlight [myname]="'namrata'"></app-child>
+<hr/>
+    <app-child [myname]="studname"></app-child>
+    
+  
+<hr/>
+<h6>entering book form details and displaying it using two-way-binding (without using ngModel)</h6>
+ <app-book></app-book>
+<hr/>
+ <h6>entering book form details and displaying it using ngModel - two-way-binding</h6>
+ <app-book1></app-book1>
+
+<hr/>
+ <app-listbook></app-listbook>
+<hr/>
+<input  appChangeText  type="text" /> 
+<hr/>
+<br/>
+<br/>
+</div>

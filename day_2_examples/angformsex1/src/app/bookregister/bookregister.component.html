@@ -1,0 +1,52 @@
+<p>bookregister works!</p>
+
+<form  (ngSubmit)="addbook(bookForm.form)"  #bookForm="ngForm">
+
+    <input class="form-control"
+           type="text" 
+           [(ngModel)]="book.id" 
+           name="bookid" 
+           placeholder="book id"  
+           required
+           #bookid="ngModel"
+            /> <br/>
+     <div  class="alert alert-danger" [hidden]="bookid.pristine||bookid.valid" >book id cant be blank</div>
+
+    <input class="form-control"
+           type="text" 
+           [(ngModel)]="book.bkname" 
+           name="bookname" 
+           placeholder="book name" 
+           required
+           pattern="[\w]{3,8}"
+           #bookname="ngModel"/> <br/>
+           
+    <div  class="alert alert-danger" [hidden]="bookname.pristine || bookname.valid" >book name not valid</div>
+
+    <input class="form-control"
+           type="number" 
+           [(ngModel)]="book.bkprice"
+           min="100.0"
+           max="10000.0" 
+           name="bookprice" 
+           placeholder="book price" 
+           required
+           #bookprice="ngModel"/> <br/>
+
+    <div class="alert alert-danger" [hidden]="bookprice.pristine||bookprice.valid" >book price is not valid</div>
+
+    <input type="submit" class="btn btn-success" 
+           [disabled]="!bookForm.form.valid" value="add book"/>
+</form>
+<hr/>
+<p> bookid:valid:{{bookid.valid}} </p>
+<p>bookid:value:{{bookid.value}} </p>
+<p> bookname:valid:{{bookname.valid}} </p>
+<p>bookname:value:{{bookname.value}} </p>
+<p> bookprice:valid:{{bookprice.valid}} </p>
+<p>bookprice:value:{{bookprice.value}} </p>
+<p>form validity:{{bookForm.form.valid}}</p>
+<p>form pristine:{{bookForm.form.pristine}}</p>
+<p>form dirty:{{bookForm.form.dirty}}</p>
+<p>form value:{{bookForm.form.value|json}}</p>
+<p>book object:{{book|json}}</p>
