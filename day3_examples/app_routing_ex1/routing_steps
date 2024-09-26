@@ -1,0 +1,23 @@
+
+step1:
+app.routes.ts
+route mapping - relative path --> component
+const routes:Routes = [
+  {
+     path:addbook,
+     component:AddBookComponent
+  }
+]
+
+step 2: give the router links
+routerLinks
+
+/addbook
+/listbook
+
+step 3:mark the area where component should be loaded
+<router-outlet></router-outlet>
+step 4: add RouterOutlet and RouterLink classes
+        in appcomponents import array
+
+
