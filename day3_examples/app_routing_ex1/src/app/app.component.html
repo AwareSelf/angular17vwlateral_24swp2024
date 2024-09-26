@@ -9,10 +9,11 @@
     <li>
       <a routerLink="/listbooks" routerLinkActive="active">List Books</a>
     </li>
-    <li>
-      <a routerLink="/searchbook" routerLinkActive="active">Search Book</a>
-    </li>
+   
   </ul>
 </div>
+<hr/>
+<input type="text" value="2" placeholder="enter bookid to search book" #search />
+<button type="button" (click)="navSearch(+search.value)">SearchBook</button>
 <hr/>
 <router-outlet></router-outlet>

@@ -35,7 +35,7 @@ export class RegisterbookComponent implements OnInit,OnDestroy {
   {
   //  this.bookarr.push(this.book);
     
-    this.bookser.addbookevent.emit(this.book);
+ //   this.bookser.addbookevent.emit(this.book); //raising a custom event
     this.bookser.addNewBook(this.book); //add the newly registered book to book array inside book service
     this.successmsg = "book with bookid:"+this.book.bkid+" added successfully!";
     this.book = new Book(); //create a new book object and bind it to UI form using ngModel

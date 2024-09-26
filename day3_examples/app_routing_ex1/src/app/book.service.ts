@@ -7,12 +7,12 @@ import { Book } from './model/book';
 export class BookService {
 
   bookarr:Book[];
-  addbookevent:EventEmitter<Book>;
+  //addbookevent:EventEmitter<Book>;
 
   constructor() {
     this.bookarr = [];
     this.bookarr.push(new Book(2,"React",2000));
-    this.addbookevent = new EventEmitter<Book>();
+   // this.addbookevent = new EventEmitter<Book>();
    }
 
    addNewBook(book:Book):void
@@ -25,6 +25,11 @@ export class BookService {
    getAllBooks():Book[]
    {
       return this.bookarr.slice();
+   }
+
+   getBook(bid:number):Book|undefined
+   {
+     return this.bookarr.find(book=>book.bkid==bid);
    }
 
 

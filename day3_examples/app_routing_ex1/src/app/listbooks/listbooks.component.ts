@@ -15,6 +15,7 @@ export class ListbooksComponent implements OnInit,OnDestroy {
 
   constructor(private bookser:BookService)
   {
+    console.log('listbook comp getting created and fetching bookarray from service..');
     this.bookarr = this.bookser.getAllBooks();
    
   }
@@ -22,9 +23,11 @@ export class ListbooksComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     console.log('listbooks comp init called')
+    /*
     this.bookser.addbookevent.subscribe(book=>{
       this.bookarr.push(book);
     })
+      */
   }
 
 

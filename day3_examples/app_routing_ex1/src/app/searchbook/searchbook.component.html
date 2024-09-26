@@ -1,1 +1,18 @@
-<p>searchbook works!</p>
+<p>search works!</p>
+@if(bkid)
+{
+    <p>{{bkid}}</p>
+}
+@if(errmsg)
+{
+   <p>{{errmsg}}</p>
+}
+
+@if(book)
+{
+    {{book.bkid}},{{book.bkname}},{{book.bkprice}}
+}
+@else
+{
+    <p>Book with id {{bkid}} not found!</p>
+}
