@@ -1,0 +1,27 @@
+
+<input type="number" 
+       [(ngModel)]="book.id" 
+       placholder="book id">
+
+<input type="text" 
+       [(ngModel)]="book.bkname" 
+       placholder="book name">
+       
+<input type="number" 
+       [(ngModel)]="book.bkprice" 
+       placholder="book price">
+
+<button (click)="addbook()">Add Book</button>
+
+<button (click)="getBooks()">ListBook</button>
+<table>
+@for(b of bkarr; track b.id)
+{ 
+    <tr>
+        <td>{{b.id}}</td>
+        <td>{{b.bkname}}</td>
+        <td>{{b.bkprice}}</td>
+    </tr>
+
+}
+</table>

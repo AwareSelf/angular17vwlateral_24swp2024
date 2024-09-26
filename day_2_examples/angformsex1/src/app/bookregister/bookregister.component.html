@@ -12,7 +12,9 @@
             /> <br/>
      <div  class="alert alert-danger" [hidden]="bookid.pristine||bookid.valid" >book id cant be blank</div>
 
-    <input class="form-control"
+   <div class="form-group">
+     <label>BookName:</label>
+     <input class="form-control"
            type="text" 
            [(ngModel)]="book.bkname" 
            name="bookname" 
@@ -20,10 +22,22 @@
            required
            pattern="[\w]{3,8}"
            #bookname="ngModel"/> <br/>
-           
-    <div  class="alert alert-danger" [hidden]="bookname.pristine || bookname.valid" >book name not valid</div>
-
-    <input class="form-control"
+         
+     <!--       
+     <span  class="alert alert-danger" [hidden]="(bookname.pristine || bookname.valid)" >
+        book name not valid</span> 
+     -->
+    
+      <span  class="alert alert-danger" *ngIf="(!bookname.pristine || !bookname.valid) && (bookname.errors?.required)" >
+          BookName is required
+      </span> 
+             
+      <span class="text-danger"   *ngIf="(bookname.touched || bookname.invalid) && 
+                                          bookname.errors?.pattern">
+                                   BookName should be 3 to 8 chars long!
+      </span> 
+     </div>
+     <input class="form-control"
            type="number" 
            [(ngModel)]="book.bkprice"
            min="100.0"

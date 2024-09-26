@@ -1,0 +1,14 @@
+{
+  "books": [
+    {
+      "bkname": "CoreJava",
+      "bkprice": 5000,
+      "id": 1
+    },
+    {
+      "bkname": "Angular",
+      "bkprice": 6000,
+      "id": 2
+    }
+  ]
+}
