@@ -17,7 +17,7 @@ export class BookService {
 
    addNewBook(book:Book):void
    {
-      console.log(book.bkid+","+book.bkname+","+book.bkprice);
+      console.log(book.id+","+book.bkname+","+book.bkprice);
       this.bookarr.push(book);
       console.log("book length after adding new book:"+this.bookarr.length);
      
@@ -29,7 +29,7 @@ export class BookService {
 
    getBook(bid:number):Book|undefined
    {
-     return this.bookarr.find(book=>book.bkid==bid);
+     return this.bookarr.find(book=>book.id==bid);
    }
 
 

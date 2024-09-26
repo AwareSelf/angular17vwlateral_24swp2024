@@ -4,13 +4,21 @@
 <button type="button"  class="btn btn-primary" (click)="listallbooks()">ListAllBooks</button>
 -->
 <ol>
-    @for( book of bookarr; track book.bkid )
+    @for( book of bookarr; track book.id )
     {
-      <li>{{book.bkid}}, {{book.bkname}},{{book.bkprice}}</li>
+      <li>
+        {{book.id}},  <br/>
+        {{book.bkname}}, <br/>
+        {{book.bkprice}} <br/>
+        <button (click)="deletebook(book.id)">delete</button> <!--step1-->
+      </li>
+
     }
     @empty
     {
       <p>Book array is currently empty!</p>
     }
 </ol>
+<hr/>
+{{deletesuccess}}
 

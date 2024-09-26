@@ -2,6 +2,7 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { Book } from '../model/book';
 import { FormsModule } from '@angular/forms';
 import { BookService } from '../book.service';
+import { BookHttpService } from '../bookhttp.service';
 
 @Component({
   //selector: 'app-registerbook',
@@ -12,15 +13,13 @@ import { BookService } from '../book.service';
 })
 export class RegisterbookComponent implements OnInit,OnDestroy {
 
-  bookarr:Book[];
-  book:Book;
+    book!:Book;
    successmsg:string;
 
-  constructor(private bookser:BookService ) //DI - angular injects the bookservice singleton instance
+  //constructor(private bookser:BookService ) //DI - angular injects the bookservice singleton instance
+  constructor(private bookser:BookHttpService)
   {
-   // this.bookarr = [];
-    
-    this.bookarr = this.bookser.getAllBooks(); //get all books from backend client bookservice
+   
     this.book = new Book(1,"Angular",1000);
     this.successmsg = '';
   }
@@ -33,13 +32,13 @@ export class RegisterbookComponent implements OnInit,OnDestroy {
 
   addBook()
   {
-  //  this.bookarr.push(this.book);
-    
- //   this.bookser.addbookevent.emit(this.book); //raising a custom event
-    this.bookser.addNewBook(this.book); //add the newly registered book to book array inside book service
-    this.successmsg = "book with bookid:"+this.book.bkid+" added successfully!";
+   
+    let bkid = this.book.id;
+    this.bookser.addNewBook(this.book).subscribe(()=>{
+      this.successmsg = "book with bookid:"+bkid+" added successfully!";
+    })
+
     this.book = new Book(); //create a new book object and bind it to UI form using ngModel
-    this.bookarr = this.bookser.getAllBooks();//fetch the latest bookarray from book service 
    
   }
 }
